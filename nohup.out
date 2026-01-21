@@ -1,0 +1,309 @@
+nohup: ignoring input
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /home/tinashe/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+/home/tinashe/.local/lib/python3.10/site-packages/pydub/utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+  warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
+/home/tinashe/Tinashe_LLM/IELTS.py:14: LangChainDeprecationWarning: Importing Chroma from langchain.vectorstores is deprecated. Please replace deprecated imports:
+
+>> from langchain.vectorstores import Chroma
+
+with new imports of:
+
+>> from langchain_community.vectorstores import Chroma
+You can use the langchain cli to **automatically** upgrade many imports. Please see documentation here <https://python.langchain.com/docs/versions/v0_2/>
+  from langchain.vectorstores.chroma import Chroma
+2025-01-23 10:20:49 - Your app is available at http://0.0.0.0:4700
+2025-01-23 10:21:03 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 10:21:03 - Translated markdown file for en-GB not found. Defaulting to chainlit.md.
+2025-01-23 10:21:08 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 10:21:15 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 10:21:16 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 10:21:51 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 10:21:54 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 10:21:54 - Translated markdown file for en-GB not found. Defaulting to chainlit.md.
+2025-01-23 10:22:48 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 10:22:52 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 10:23:54 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 10:35:10 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 10:38:35 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 10:48:45 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 10:48:46 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 10:48:46 - Translated markdown file for en-GB not found. Defaulting to chainlit.md.
+2025-01-23 10:49:09 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 10:49:36 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 10:50:11 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 10:50:21 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 11:03:49 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 11:13:00 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 11:13:06 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 11:13:24 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 11:13:25 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 11:13:35 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 11:19:17 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 11:19:17 - Translated markdown file for en-GB not found. Defaulting to chainlit.md.
+2025-01-23 11:19:22 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 11:19:30 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 11:19:30 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 11:19:50 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 11:19:51 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 11:19:51 - Translated markdown file for en-GB not found. Defaulting to chainlit.md.
+2025-01-23 11:19:55 - Translation file for en-GB not found. Using default translation en-US.
+Settings updated  {'Model': 'Test Mode'}
+Test Mode
+2025-01-23 11:20:09 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 11:20:15 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 11:20:23 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 11:20:43 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 11:20:56 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:09:43 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:09:43 - Translated markdown file for en-GB not found. Defaulting to chainlit.md.
+2025-01-23 15:10:35 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:10:48 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:10:53 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:10:54 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:11:06 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:11:06 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:11:22 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:11:23 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+Settings updated  {'Model': 'Test Mode'}
+Test Mode
+2025-01-23 15:11:41 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:11:59 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:12:06 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:12:13 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:12:17 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:12:25 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:12:33 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:12:37 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:12:42 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:12:47 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:12:50 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:12:55 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:12:59 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:13:05 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:13:10 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:13:14 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:13:18 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:13:22 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:13:28 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:13:35 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:13:42 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:13:52 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:14:00 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:14:07 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:14:13 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:14:22 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+Settings updated  {'Model': 'Practice Mode'}
+Practice Mode
+2025-01-23 15:14:33 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:15:18 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:17:00 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:17:05 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:17:27 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:17:46 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:28:24 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:34:19 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:34:20 - Translated markdown file for en-GB not found. Defaulting to chainlit.md.
+2025-01-23 15:36:15 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:36:34 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:36:58 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-24 12:24:20 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-24 19:53:51 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-24 19:53:51 - Translated markdown file for en-GB not found. Defaulting to chainlit.md.
+2025-01-24 19:54:01 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-24 19:54:15 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-24 19:54:16 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-24 19:54:21 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-24 19:54:37 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-24 19:54:38 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-24 19:54:48 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-24 19:54:49 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-24 19:54:50 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-24 19:55:16 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-24 19:55:17 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-24 20:30:13 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-29 04:16:52 - Translation file for en not found. Using default translation en-US.
+2025-01-29 04:16:53 - Translated markdown file for en not found. Defaulting to chainlit.md.
+n en-US.
+2025-01-23 11:58:30 - Translated markdown file for en-GB not found. Defaulting to chainlit.md.
+2025-01-23 11:59:12 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 12:04:35 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 12:07:05 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 12:07:15 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 12:20:19 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 12:20:25 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-23 15:17:01 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-24 06:54:55 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-24 06:55:07 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-24 06:55:23 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-27 04:57:16 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-27 05:04:08 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-27 08:11:57 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-27 13:39:57 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-27 13:43:47 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-27 13:49:33 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-28 06:13:54 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-01-29 15:15:14 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-29 15:15:14 - Translated markdown file for en-GB not found. Defaulting to chainlit.md.
+2025-01-29 15:15:19 - Translation file for en-GB not found. Using default translation en-US.
+Processing request: show me python code hello world
+Sending prompt to ChatGroq...
+2025-01-29 15:15:28 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+RAG response: Sure, here's a simple Python code to print "Hello, World!"
+
+```python
+print("Hello, World!")
+```
+
+Just run this code in a Python environment, and you'll see the message displayed. I'm familiar with Python programming, as well as other languages like Java, Swift, JavaScript, and others, due to my experience in software development and machine learning.
+
+Response sent back to user.
+Processing request: how do you defind a hellow orld funciton
+Sending prompt to ChatGroq...
+2025-01-29 15:15:49 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+RAG response: Based on the context you've provided, I'm assuming the question is about defining a "hello world" function in a programming context. Here's how I would answer that question:
+
+In my experience as a software developer, defining a "hello world" function is often one of the first steps in learning a new programming language. This function simply prints or displays the string "hello world" to the console or screen.
+
+For example, in JavaScript, a "hello world" function might look like this:
+
+```javascript
+function helloWorld() {
+  console.log("hello world");
+}
+
+helloWorld();
+```
+
+In this example, the `helloWorld` function is defined with the `function` keyword, and it contains a single statement that uses the `console.log` method to print the string "hello world" to the console. The function is then called by using its name followed by parentheses.
+
+Of course, the exact syntax for defining a "hello world" function can vary depending on the programming language being used. But the basic concept remains the same: it's a simple function that displays or prints the string "hello world".
+
+Response sent back to user.
+Processing request: show mistake in this function helloWorld() {
+  console.lo"hello world");
+}
+
+helloWorld();
+Sending prompt to ChatGroq...
+2025-01-29 15:16:15 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+RAG response: I notice a mistake in the helloWorld() function. The problem lies in the console.lo"hello world" line. It seems there's a typo - instead of "console.log", it's written as "console.lo". To fix this, I would change "console.lo" to "console.log", like so:
+
+function helloWorld() {
+  console.log("hello world");
+}
+
+helloWorld();
+
+Response sent back to user.
+Processing request: show revised code
+Sending prompt to ChatGroq...
+2025-01-29 15:16:26 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+RAG response: I have experience as a Software Developer at Dencroft Business Solutions from July 2018 to Jan 2019, where I built and enhanced mobile applications and websites using technologies such as WordPress, HTML, and JavaScript. I also developed a web app with Angular and Node.js for live media streaming and content management.
+
+Prior to that, I worked as a Software Developer at Parkrite Africa from 2017 to 2019. During my time there, I designed a parking management system that handled over 50,000 transactions. I also built a real-time parking system data processing pipeline and created an interactive dashboard to present insights to management. Additionally, I integrated payment gateways and deployed cloud-based applications.
+
+In the past, I have also served as a Founder for Microbots, a division of Divsol (Pvt) Ltd, where I designed and developed the world's first Bluetooth enabled vehicle immobilization device. The device received recognition and was nominated for an award as one of the most scalable solutions at the ITU Durban 2018 representing Zimbabwe. I also developed a parking management system with iOS, Android App and Node.js backend for Parkrite Africa.
+
+Most recently, I have worked as a Data Analyst at Texcite Pty Ltd from Dec 2021 to Present. In this role, I have designed scalable data solutions and analyzed client datasets using Python and SQL. I have also created interactive dashboards for fan demographics and geographic insights to optimize concert planning. Additionally, I have developed Python-based ETL processes and presented findings in comprehensive data-driven reports.
+
+I have also served as a Postgraduate Researcher at Eskom Power Plant Engineering Institute from 2020 to 2022. During this time, I investigated the mechanical properties of P91 welds using high-temperature tensile testing through experiments. I extracted data from these experiments and applied MATLAB for data analysis, developing research publications on material behavior.
+
+In the past, I have also worked as a Software Developer at Dencroft Business Solutions from July 2018 to Jan 2019.
+
+I have experience in reviewing and responding to request for proposals (RFPs), communicating and building relationships with partners for RFP responses, and creating partnerships with funding organizations. I have successfully established a partnership with an investment organization to review waste-to-energy (WTE) projects for viability under a R150m investment fund in Africa. I have also created an automated web scraping system to search for new RFPs on UNIDO and GIZ websites, emailing relevant RFPs to the team daily.
+
+Response sent back to user.
+Processing request: show code to read a csv 
+Sending prompt to ChatGroq...
+2025-01-29 15:16:44 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+RAG response: Sure, based on the context you've provided, I can answer the question in first person as a data analyst or data scientist. Here's an example of how to read a CSV file using Python:
+
+"As a data analyst or data scientist, I often need to read data from CSV files. To do this, I use the `pandas` library in Python. Here's an example of how to read a CSV file using `pandas`:
+```python
+import pandas as pd
+
+# Specify the file path
+file_path = 'path/to/your/csv/file.csv'
+
+# Read the CSV file into a pandas DataFrame
+data = pd.read_csv(file_path)
+
+# Print the first few rows of the DataFrame to check if the data has been loaded correctly
+print(data.head())
+```
+In this example, we first import the `pandas` library, then specify the file path of the CSV file we want to read. We then use the `read_csv()` function from `pandas` to read the CSV file into a DataFrame. Finally, we print the first few rows of the DataFrame to check if the data has been loaded correctly."
+
+Response sent back to user.
+2025-01-29 15:18:23 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 09:11:10 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 09:11:10 - Translated markdown file for en-GB not found. Defaulting to chainlit.md.
+2025-01-30 09:12:25 - Translation file for en-GB not found. Using default translation en-US.
+Processing request: Tell me about you.
+Sending prompt to ChatGroq...
+2025-01-30 09:12:37 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+RAG response: I am a results-oriented, creative, and versatile professional with a strong background in mechanical engineering and a growing expertise in data science. I hold a BSc in Mechanical Engineering with a distinction in my final year thesis and recently completed an MSc Mechanical Engineering degree at the University of Cape Town, focusing on Materials and Mechanics.
+
+I have experience in programming for software development, machine learning, and data analysis, as well as engineering product design. I have been recognized for my academic achievements, including being listed on the Dean's Merit List and receiving the People's Choice and Best Overall awards.
+
+My skills include optimization, business strategy, proficiency in Solidworks, and certifications in Introduction to Swift Programming, Machine Learning, Front-End Web UI Frameworks and Tools, Advanced Learning Algorithms, and Multi-Objective Optimization Problems and Algorithms.
+
+I have worked as a Software Developer at Dencroft Business Solutions and Parkrite Africa, where I built and enhanced mobile applications, developed web apps for live media streaming and content management, and designed a parking management system handling over 50,000 transactions. I have also demonstrated my ability to communicate complex data science concepts to technical and non-technical audiences.
+
+I am passionate about leveraging data to drive impactful business decisions and currently interested in Computational mechanics, Machine Learning, and cloud computing. You can reach me at jambotinashe@gmail.com, or connect with me on LinkedIn at www.linkedin.com/in/tinashejambo.
+
+Response sent back to user.
+2025-01-30 09:12:43 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 09:12:43 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 09:12:44 - Translated markdown file for en-GB not found. Defaulting to chainlit.md.
+2025-01-30 09:13:45 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 09:33:10 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 09:35:59 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 09:38:08 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 09:39:19 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 09:39:24 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 09:41:32 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 09:41:37 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 09:41:47 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 10:13:33 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 10:14:27 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 10:15:01 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 10:15:24 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 10:16:11 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 10:16:36 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 10:16:46 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 11:24:39 - Translation file for en-GB not found. Using default translation en-US.
+2025-01-30 11:25:17 - Translation file for en-GB not found. Using default translation en-US.
+2025-02-02 06:21:46 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-02-02 06:22:15 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-02-02 09:52:25 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-02-03 12:39:38 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-02-03 12:43:56 - Translated markdown file for en-US not found. Defaulting to chainlit.md.
+2025-02-03 13:39:54 - Task exception was never retrieved
+future: <Task finished name='Task-70773' coro=<disconnect.<locals>.clear_on_timeout() done, defined at /home/tinashe/.local/lib/python3.10/site-packages/chainlit/socket.py:234> exception=PermissionError(13, 'Permission denied')>
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/asyncio/tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "/home/tinashe/.local/lib/python3.10/site-packages/chainlit/socket.py", line 236, in clear_on_timeout
+  File "/home/tinashe/.local/lib/python3.10/site-packages/chainlit/socket.py", line 228, in clear
+  File "/home/tinashe/.local/lib/python3.10/site-packages/chainlit/session.py", line 261, in delete
+  File "/usr/lib/python3.10/pathlib.py", line 1305, in is_dir
+    return S_ISDIR(self.stat().st_mode)
+  File "/usr/lib/python3.10/pathlib.py", line 1097, in stat
+    return self._accessor.stat(self, follow_symlinks=follow_symlinks)
+PermissionError: [Errno 13] Permission denied: '/home/tinashe/Tinashe_LLM/.files/51d1b26c-32bd-4e5c-90eb-8ebd4205bec6'
+2025-02-03 13:44:13 - Task exception was never retrieved
+future: <Task finished name='Task-70882' coro=<disconnect.<locals>.clear_on_timeout() done, defined at /home/tinashe/.local/lib/python3.10/site-packages/chainlit/socket.py:234> exception=PermissionError(13, 'Permission denied')>
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/asyncio/tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "/home/tinashe/.local/lib/python3.10/site-packages/chainlit/socket.py", line 236, in clear_on_timeout
+  File "/home/tinashe/.local/lib/python3.10/site-packages/chainlit/socket.py", line 228, in clear
+  File "/home/tinashe/.local/lib/python3.10/site-packages/chainlit/session.py", line 261, in delete
+  File "/usr/lib/python3.10/pathlib.py", line 1305, in is_dir
+    return S_ISDIR(self.stat().st_mode)
+  File "/usr/lib/python3.10/pathlib.py", line 1097, in stat
+    return self._accessor.stat(self, follow_symlinks=follow_symlinks)
+PermissionError: [Errno 13] Permission denied: '/home/tinashe/Tinashe_LLM/.files/a7929db9-601e-4beb-a34d-d223b77c8de5'
+INFO:     162.216.150.82:63766 - "GET / HTTP/1.1" 404 Not Found

@@ -1,0 +1,26 @@
+Student_ID,Mistake_Type,Original_Sentence,Corrected_Sentence
+1,Grammar,I goes to school,I go to school
+1,Vocabulary,She took the wrong bus,She missed the bus
+1,Grammar,They is my friends,They are my friends
+2,Vocabulary,He miss the bus,He missed the bus
+2,Grammar,She were late,She was late
+2,Grammar,They doesn't know,They don't know
+3,Vocabulary,He don't have any,He doesn't have any
+3,Grammar,She are happy,She is happy
+3,Vocabulary,We doesn't like it,We don't like it
+4,Grammar,He has car,He has a car
+4,Grammar,They has a house,They have a house
+4,Vocabulary,He bringed the book,He brought the book
+5,Vocabulary,I taked the bus,I took the bus
+5,Grammar,She have been there,She has been there
+5,Grammar,They was there,They were there
+1,Vocabulary,She learn fast,She learns fast
+1,Grammar,We was playing,We were playing
+2,Grammar,He bring a gift,He brought a gift
+2,Vocabulary,She taked the wrong train,She took the wrong train
+3,Vocabulary,He don't like it,He doesn't like it
+3,Grammar,She went to the sea,She went to the beach
+4,Vocabulary,They isn't coming,They aren't coming
+4,Grammar,He eat the apple,He ate the apple
+5,Grammar,She haven't seen him,She hasn't seen him
+5,Vocabulary,They gone to the party,They went to the party

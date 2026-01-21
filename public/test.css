@@ -1,0 +1,22 @@
+a[href*='https://github.com/Chainlit/chainlit'] {
+    visibility: hidden;
+}
+
+/* Assuming the profile circle and icon are using specific classes */
+.profile-icon {
+    background-color: #808080; /* Grey color */
+    border: 2px solid #505050; /* Darker grey border (optional) */
+}
+
+.edit-icon {
+    color: #808080; /* Grey color for the edit icon */
+}
+
+/* Ensure to update hover effects if necessary */
+.profile-icon:hover {
+    background-color: #D3D3D3; /* Lighter grey on hover */
+}
+
+.edit-icon:hover {
+    color: #D3D3D3; /* Lighter grey on hover */
+}

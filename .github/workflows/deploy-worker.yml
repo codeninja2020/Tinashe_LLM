@@ -15,6 +15,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: worker
+          wranglerVersion: "4.168.0"
           secrets: |
             ANTHROPIC_API_KEY
         env:

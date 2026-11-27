@@ -1,4 +1,4 @@
-export const PAGE = /* html */ `<!doctype html>
+export const PAGE = /* html */ String.raw`<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -62,7 +62,7 @@ export const PAGE = /* html */ `<!doctype html>
   function esc(t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
   function inline(t) {
     return esc(t)
-      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\x60([^\x60]+)\x60/g, "<code>$1</code>")
       .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
       .replace(/__([^_]+)__/g, "<strong>$1</strong>")
       .replace(/(^|[^*])\*([^*\s][^*]*)\*/g, "$1<em>$2</em>")

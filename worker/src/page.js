@@ -33,7 +33,7 @@ export const PAGE = /* html */ `<!doctype html>
 <div class="wrap">
   <header>
     <div class="avatar">TJ</div>
-    <div><h1>Tinashe AI</h1><p>Engineer · Data engineer · PhD researcher · Entrepreneur</p></div>
+    <div><h1>Tinashe AI</h1></div>
   </header>
   <div id="log">
     <div class="msg bot">Hi, I'm Tinashe's AI. Ask me about my work in data engineering, cardiac mechanics research, startups, or my engineering background.</div>

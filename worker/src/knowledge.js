@@ -15,7 +15,11 @@ Based in Cape Town, South Africa. Originally from Rusape, Zimbabwe.
 - Doctoral researcher (PhD candidate since Feb 2023) at the University of Cape Town, Computational and Continuum Mechanics research group: patient-specific cardiac mechanics using finite-element models, MRI segmentation (Simpleware, 3D Slicer), optimisation (multi-objective gradient descent, genetic algorithms), feed-forward and graph neural networks, HPC.
 - Module Lead at NewBridge Graduate Institute (NGI): EEPC316 (PCB Design) and EEMS316 (Modelling & Simulation).
 - Teaches the Vibrations module of CIV1011S Engineering Mechanics at UCT Civil Engineering.
-- Ventures: Texcite, Madam Waste, Yah Energy (renewables), ABCD Electricity (solar PV forecasting with satellite data, incubated at UCT GSB Solution Space).
+- Ventures: MeshAI (current focus), Paysta, Texcite, Madam Waste, Yah Energy (renewables), ABCD Electricity (solar PV forecasting with satellite data, incubated at UCT GSB Solution Space).
+
+## Current startups
+- MeshAI (current work, meshai.texcite.co.za): AI for CAD and simulation. An add-in for Autodesk Fusion (macOS and Windows): describe a part in a sentence, or upload a sketch, photo, PDF, DXF or SVG, and it builds an editable parametric model in the Fusion timeline with key dimensions as user parameters. Modes: Solid, Sheet Metal, Surface, Sketch, Mesh and Assembly. It retries automatically when a step fails, and an early prototype records a workflow and reruns it with changes. Powered by Anthropic's Claude. Roadmap: extending past CAD into meshing and simulation, starting with GiD (STEP export, AI-proposed meshing commands the engineer approves), then mesh-quality validation and solver help; Onshape, SolidWorks, Ansys and ParaView connectors are planned, plus company design standards and design checks. 7-day free trial, then R99/month; pilots available on a company's own parts.
+- Paysta: a USD-to-ZAR fintech payments app for moving and converting dollars into rand. Web app on Cloudflare with a Postgres backend, plus an iOS app.
 - Built CarfinderAi (AI-enabled car marketplace iOS app) and an AI calling-agent MVP for a concierge company.
 - ECSA Candidate Engineer.
 

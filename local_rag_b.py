@@ -10,7 +10,7 @@ from langchain_groq import ChatGroq
 from get_embedding_function import get_embedding_function
 
 # GROQ API key
-GROQ_API_KEY = "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"
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 
 # Instantiate ChatGroq with the desired model
 llm_groq = ChatGroq(

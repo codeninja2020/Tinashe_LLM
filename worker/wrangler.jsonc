@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tinashe-ai",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "account_id": "f1760b1459ae3a813581d6a7792e2e5c",
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "tinashe.texcite.co.za", "custom_domain": true }
+  ],
+  "vars": { "MODEL": "claude-sonnet-5-5" },
+  "observability": { "enabled": true }
+}

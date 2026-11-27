@@ -37,6 +37,19 @@ export const PAGE = /* html */ String.raw`<!doctype html>
   .rec label.c input { width:auto; margin-top:3px; }
   .rec .go { align-self:flex-start; background:var(--blue); color:#fff; border:0; border-radius:10px; padding:8px 16px; font:inherit; font-weight:600; cursor:pointer; }
   .rec .err { color:#d33; font-size:13px; min-height:1em; }
+  .auth { align-self:stretch; border:1px solid var(--line); background:var(--card); border-radius:14px; padding:16px; display:none; flex-direction:column; gap:10px; }
+  .auth.show { display:flex; }
+  .auth h2 { margin:0; font-size:16px; } .auth p { margin:0; color:var(--muted); font-size:14px; }
+  .auth .row { display:flex; gap:8px; }
+  .auth input[type=tel], .auth input[inputmode=numeric] { flex:1; font:inherit; padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:var(--bg); color:var(--ink); }
+  .auth input[inputmode=numeric] { letter-spacing:4px; font-size:18px; }
+  .auth button.go { background:var(--blue); color:#fff; border:0; border-radius:10px; padding:0 16px; font:inherit; font-weight:600; cursor:pointer; min-height:42px; }
+  .auth button.go:disabled { opacity:.5; }
+  .auth button.link { background:none; border:0; color:var(--blue); font:inherit; font-size:13px; cursor:pointer; padding:0; align-self:flex-start; }
+  .auth label.c { font-size:13px; color:var(--muted); display:flex; gap:8px; align-items:flex-start; }
+  .auth label.c input { margin-top:3px; }
+  .auth .err { color:#d33; font-size:13px; min-height:1em; }
+  .locked > .msg, .locked > .starters, .locked > .rec { display:none; }
   .badge { font-size:12px; color:var(--blue); border:1px solid var(--blue); border-radius:999px; padding:2px 10px; margin-left:auto; display:none; }
   form#f { display:flex; gap:8px; padding-top:12px; border-top:1px solid var(--line); }
   textarea { flex:1; resize:none; font:inherit; padding:10px 12px; border-radius:12px; border:1px solid var(--line); background:var(--card); color:var(--ink); min-height:46px; max-height:160px; }
@@ -54,6 +67,20 @@ export const PAGE = /* html */ String.raw`<!doctype html>
     <span class="badge" id="badge"></span>
   </header>
   <div id="log">
+    <div class="auth" id="auth">
+      <h2>Verify your mobile to chat</h2>
+      <p>I'll text you a one-time code. You stay signed in on this device for 30 days.</p>
+      <div id="step1">
+        <div class="row"><input type="tel" id="phone" placeholder="e.g. 082 123 4567 or +44 7700 900123" autocomplete="tel" maxlength="20"><button class="go" id="sendBtn" type="button">Send code</button></div>
+        <label class="c" style="margin-top:8px"><input type="checkbox" id="authConsent"> I agree that my number and questions are stored and shared with Tinashe so he can follow up. They're not shared with anyone else.</label>
+      </div>
+      <div id="step2" style="display:none">
+        <p id="sentTo"></p>
+        <div class="row" style="margin-top:8px"><input inputmode="numeric" id="code" placeholder="6-digit code" maxlength="10" autocomplete="one-time-code"><button class="go" id="verifyBtn" type="button">Verify</button></div>
+        <button class="link" id="changeNum" type="button" style="margin-top:8px">Use a different number or resend</button>
+      </div>
+      <div class="err" id="authErr"></div>
+    </div>
     <div class="msg bot">Hi, I'm Tinashe's AI. Ask me about my work in data engineering, cardiac mechanics research, startups, or my engineering background.</div>
     <div class="starters" id="starters">
       <button>Tell me about your PhD research</button>
@@ -130,6 +157,7 @@ export const PAGE = /* html */ String.raw`<!doctype html>
     let reply = "";
     try {
       const r = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: history, visitorId: visitorId, sessionId: sessionId }) });
+      if (r.status === 401) { out.remove(); history.pop(); lock(true); return; }
       if (!r.ok) throw new Error(await r.text());
       const reader = r.body.getReader(), dec = new TextDecoder();
       for (;;) {
@@ -142,7 +170,7 @@ export const PAGE = /* html */ String.raw`<!doctype html>
     } catch (e) {
       out.textContent = "Sorry, something went wrong: " + e.message;
       history.pop();
-    } finally { send.disabled = false; q.focus(); }
+    } finally { const locked = log.classList.contains("locked"); send.disabled = locked; if (!locked) q.focus(); }
   }
 
 
@@ -170,6 +198,49 @@ export const PAGE = /* html */ String.raw`<!doctype html>
       log.appendChild(box); q.focus();
     } catch (err) { recErr.textContent = err.message || "Something went wrong."; btn.disabled = false; }
   });
+
+  // ----- mobile OTP gate -----
+  const authBox = document.getElementById("auth"), authErr = document.getElementById("authErr");
+  const phoneIn = document.getElementById("phone"), codeIn = document.getElementById("code");
+  const step1 = document.getElementById("step1"), step2 = document.getElementById("step2");
+  function lock(on) {
+    log.classList.toggle("locked", on); authBox.classList.toggle("show", on);
+    q.disabled = on; send.disabled = on;
+    q.placeholder = on ? "Verify your mobile above to start chatting" : "Ask me anything about my work…";
+  }
+  async function post(url, data) {
+    const r = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(data) });
+    if (!r.ok) throw new Error(await r.text());
+    return r.json();
+  }
+  document.getElementById("sendBtn").addEventListener("click", async (e) => {
+    authErr.textContent = "";
+    if (!document.getElementById("authConsent").checked) { authErr.textContent = "Please tick the privacy box to continue."; return; }
+    e.target.disabled = true;
+    try {
+      const r = await post("/api/otp/start", { phone: phoneIn.value, consent: true });
+      document.getElementById("sentTo").textContent = "Enter the code we sent to " + r.phone + ".";
+      step1.style.display = "none"; step2.style.display = "block"; codeIn.focus();
+    } catch (err) { authErr.textContent = err.message; }
+    e.target.disabled = false;
+  });
+  async function verify() {
+    authErr.textContent = ""; const btn = document.getElementById("verifyBtn"); btn.disabled = true;
+    try { await post("/api/otp/check", { phone: phoneIn.value, code: codeIn.value }); lock(false); q.focus(); }
+    catch (err) { authErr.textContent = err.message; }
+    btn.disabled = false;
+  }
+  document.getElementById("verifyBtn").addEventListener("click", verify);
+  codeIn.addEventListener("keydown", (e) => { if (e.key === "Enter") verify(); });
+  phoneIn.addEventListener("keydown", (e) => { if (e.key === "Enter") document.getElementById("sendBtn").click(); });
+  document.getElementById("changeNum").addEventListener("click", () => { step2.style.display = "none"; step1.style.display = "block"; codeIn.value = ""; authErr.textContent = ""; phoneIn.focus(); });
+  fetch("/api/me").then((r) => r.json()).then((m) => {
+    if (m.authRequired && !m.verified) lock(true);
+    if (m.recruiter) {
+      visitorId = "session"; document.getElementById("rec")?.remove();
+      const badge = document.getElementById("badge"); badge.textContent = "Recruiter mode · " + m.recruiter.role_title; badge.style.display = "inline-block";
+    }
+  }).catch(() => {});
   f.addEventListener("submit", (e) => { e.preventDefault(); ask(q.value); });
   q.addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(q.value); } });
   starters.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => ask(b.textContent)));

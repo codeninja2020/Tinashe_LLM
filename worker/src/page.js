@@ -33,12 +33,11 @@ export const PAGE = /* html */ `<!doctype html>
 <div class="wrap">
   <header>
     <div class="avatar">TJ</div>
-    <div><h1>Tinashe AI</h1><p>Engineer · Data engineer · PhD researcher · COO, Texcite</p></div>
+    <div><h1>Tinashe AI</h1><p>Engineer · Data engineer · PhD researcher</p></div>
   </header>
   <div id="log">
-    <div class="msg bot">Hi, I'm Tinashe's AI. Ask me about my work in data engineering, cardiac mechanics research, Texcite, or my engineering background.</div>
+    <div class="msg bot">Hi, I'm Tinashe's AI. Ask me about my work in data engineering, cardiac mechanics research, startups, or my engineering background.</div>
     <div class="starters" id="starters">
-      <button>What do you do at Texcite?</button>
       <button>Tell me about your PhD research</button>
       <button>What's your data engineering stack?</button>
       <button>Which startups have you built?</button>

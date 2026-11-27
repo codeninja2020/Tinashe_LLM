@@ -22,7 +22,7 @@ from textblob import TextBlob
 import pyphen
 
 
-GROQ_API_KEY = "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"
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 
 llm_groq = ChatGroq(
     groq_api_key=GROQ_API_KEY,

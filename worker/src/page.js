@@ -17,6 +17,11 @@ export const PAGE = /* html */ `<!doctype html>
   #log { flex:1; overflow-y:auto; padding:18px 0; display:flex; flex-direction:column; gap:12px; }
   .msg { max-width:85%; padding:10px 14px; border-radius:14px; white-space:pre-wrap; word-wrap:break-word; }
   .user { align-self:flex-end; background:var(--blue); color:#fff; border-bottom-right-radius:4px; }
+  .bot.md { white-space:normal; }
+  .bot.md p { margin:0 0 8px; } .bot.md p:last-child, .bot.md ul:last-child, .bot.md ol:last-child { margin-bottom:0; }
+  .bot.md ul, .bot.md ol { margin:0 0 8px; padding-left:20px; } .bot.md li { margin:2px 0; }
+  .bot.md code { background:var(--line); padding:1px 4px; border-radius:4px; font-size:.92em; }
+  .bot.md a { color:var(--blue); }
   .bot { align-self:flex-start; background:var(--card); border:1px solid var(--line); border-bottom-left-radius:4px; }
   .starters { display:flex; flex-wrap:wrap; gap:8px; }
   .starters button { border:1px solid var(--line); background:var(--card); color:var(--ink); padding:8px 12px; border-radius:999px; cursor:pointer; font:inherit; font-size:14px; }
@@ -54,6 +59,32 @@ export const PAGE = /* html */ `<!doctype html>
         q = document.getElementById("q"), send = document.getElementById("send"),
         starters = document.getElementById("starters");
   const history = [];
+  function esc(t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function inline(t) {
+    return esc(t)
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/__([^_]+)__/g, "<strong>$1</strong>")
+      .replace(/(^|[^*])\*([^*\s][^*]*)\*/g, "$1<em>$2</em>")
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  }
+  function md(src) {
+    const out = []; let list = null, para = [];
+    const flushP = () => { if (para.length) { out.push("<p>" + para.map(inline).join("<br>") + "</p>"); para = []; } };
+    const flushL = () => { if (list) { out.push("<" + list.tag + ">" + list.items.map(i => "<li>" + inline(i) + "</li>").join("") + "</" + list.tag + ">"); list = null; } };
+    for (const raw of src.split("\n")) {
+      const line = raw.trimEnd();
+      let m;
+      if ((m = line.match(/^\s*[-*•]\s+(.*)/))) { flushP(); if (!list || list.tag !== "ul") { flushL(); list = { tag: "ul", items: [] }; } list.items.push(m[1]); }
+      else if ((m = line.match(/^\s*\d+[.)]\s+(.*)/))) { flushP(); if (!list || list.tag !== "ol") { flushL(); list = { tag: "ol", items: [] }; } list.items.push(m[1]); }
+      else if ((m = line.match(/^#{1,6}\s+(.*)/))) { flushP(); flushL(); out.push("<p><strong>" + inline(m[1]) + "</strong></p>"); }
+      else if (!line.trim()) { flushP(); flushL(); }
+      else { flushL(); para.push(line); }
+    }
+    flushP(); flushL();
+    return out.join("");
+  }
+
 
   function add(role, text) {
     const d = document.createElement("div");
@@ -69,7 +100,7 @@ export const PAGE = /* html */ `<!doctype html>
     add("user", text);
     history.push({ role: "user", content: text });
     send.disabled = true; q.value = "";
-    const out = add("bot", "…");
+    const out = add("bot", "…"); out.classList.add("md");
     let reply = "";
     try {
       const r = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: history }) });
@@ -79,7 +110,7 @@ export const PAGE = /* html */ `<!doctype html>
         const { done, value } = await reader.read();
         if (done) break;
         reply += dec.decode(value, { stream: true });
-        out.textContent = reply; log.scrollTop = log.scrollHeight;
+        out.innerHTML = md(reply); log.scrollTop = log.scrollHeight;
       }
       history.push({ role: "assistant", content: reply });
     } catch (e) {

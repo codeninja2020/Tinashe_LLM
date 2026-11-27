@@ -26,10 +26,22 @@ export const PAGE = /* html */ String.raw`<!doctype html>
   .starters { display:flex; flex-wrap:wrap; gap:8px; }
   .starters button { border:1px solid var(--line); background:var(--card); color:var(--ink); padding:8px 12px; border-radius:999px; cursor:pointer; font:inherit; font-size:14px; }
   .starters button:hover { border-color:var(--blue); }
-  form { display:flex; gap:8px; padding-top:12px; border-top:1px solid var(--line); }
+  .rec { align-self:stretch; border:1px solid var(--line); background:var(--card); border-radius:14px; padding:12px 14px; }
+  .rec > button.open { width:100%; text-align:left; background:none; border:0; color:var(--blue); font:inherit; font-weight:600; cursor:pointer; padding:0; }
+  .rec form { display:none; flex-direction:column; gap:8px; padding:10px 0 0; border:0; }
+  .rec.show form { display:flex; } .rec.show > button.open { display:none; }
+  .rec .row { display:flex; gap:8px; } .rec .row > * { flex:1; }
+  .rec input, .rec textarea { font:inherit; font-size:14px; padding:8px 10px; border-radius:10px; border:1px solid var(--line); background:var(--bg); color:var(--ink); width:100%; }
+  .rec textarea { min-height:90px; resize:vertical; }
+  .rec label.c { font-size:13px; color:var(--muted); display:flex; gap:8px; align-items:flex-start; }
+  .rec label.c input { width:auto; margin-top:3px; }
+  .rec .go { align-self:flex-start; background:var(--blue); color:#fff; border:0; border-radius:10px; padding:8px 16px; font:inherit; font-weight:600; cursor:pointer; }
+  .rec .err { color:#d33; font-size:13px; min-height:1em; }
+  .badge { font-size:12px; color:var(--blue); border:1px solid var(--blue); border-radius:999px; padding:2px 10px; margin-left:auto; display:none; }
+  form#f { display:flex; gap:8px; padding-top:12px; border-top:1px solid var(--line); }
   textarea { flex:1; resize:none; font:inherit; padding:10px 12px; border-radius:12px; border:1px solid var(--line); background:var(--card); color:var(--ink); min-height:46px; max-height:160px; }
-  form button { background:var(--blue); color:#fff; border:0; border-radius:12px; padding:0 18px; font:inherit; font-weight:600; cursor:pointer; }
-  form button:disabled { opacity:.5; cursor:default; }
+  form#f button { background:var(--blue); color:#fff; border:0; border-radius:12px; padding:0 18px; font:inherit; font-weight:600; cursor:pointer; }
+  form#f button:disabled { opacity:.5; cursor:default; }
   footer { color:var(--muted); font-size:12px; text-align:center; padding-top:10px; }
   footer a { color:inherit; }
 </style>
@@ -39,6 +51,7 @@ export const PAGE = /* html */ String.raw`<!doctype html>
   <header>
     <div class="avatar">TJ</div>
     <div><h1>Tinashe AI</h1></div>
+    <span class="badge" id="badge"></span>
   </header>
   <div id="log">
     <div class="msg bot">Hi, I'm Tinashe's AI. Ask me about my work in data engineering, cardiac mechanics research, startups, or my engineering background.</div>
@@ -47,18 +60,31 @@ export const PAGE = /* html */ String.raw`<!doctype html>
       <button>What's your data engineering stack?</button>
       <button>Which startups have you built?</button>
     </div>
+    <div class="rec" id="rec">
+      <button class="open" type="button" id="recOpen">Recruiting? Tell me about the role and I'll tailor my answers to it →</button>
+      <form id="recForm" novalidate>
+        <div class="row"><input name="name" placeholder="Your name" maxlength="120" required><input name="company" placeholder="Company" maxlength="160" required></div>
+        <div class="row"><input name="email" type="email" placeholder="Work email" maxlength="200" required><input name="role_title" placeholder="Role title, e.g. Senior Data Engineer" maxlength="200" required></div>
+        <textarea name="job_description" maxlength="8000" placeholder="Paste the job description (optional, but gives much better answers)"></textarea>
+        <label class="c"><input type="checkbox" name="consent"> I agree that my details and questions are shared with Tinashe so he can follow up. They're not shared with anyone else.</label>
+        <div class="err" id="recErr"></div>
+        <button class="go" type="submit">Start recruiter chat</button>
+      </form>
+    </div>
   </div>
   <form id="f">
     <textarea id="q" placeholder="Ask me anything about my work…" rows="1" required></textarea>
     <button id="send">Send</button>
   </form>
-  <footer>AI answers can be wrong. For anything important, email <a href="mailto:jambotinashe@gmail.com">jambotinashe@gmail.com</a>.</footer>
+  <footer>AI answers can be wrong. Questions are logged to improve this assistant. For anything important, email <a href="mailto:jambotinashe@gmail.com">jambotinashe@gmail.com</a>.</footer>
 </div>
 <script>
   const log = document.getElementById("log"), f = document.getElementById("f"),
         q = document.getElementById("q"), send = document.getElementById("send"),
         starters = document.getElementById("starters");
   const history = [];
+  let visitorId = null;
+  const sessionId = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random());
   function esc(t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
   function inline(t) {
     return esc(t)
@@ -96,14 +122,14 @@ export const PAGE = /* html */ String.raw`<!doctype html>
 
   async function ask(text) {
     if (!text.trim()) return;
-    starters.remove?.();
+    starters.remove?.(); if (!visitorId) document.getElementById("rec")?.remove();
     add("user", text);
     history.push({ role: "user", content: text });
     send.disabled = true; q.value = "";
     const out = add("bot", "…"); out.classList.add("md");
     let reply = "";
     try {
-      const r = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: history }) });
+      const r = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ messages: history, visitorId: visitorId, sessionId: sessionId }) });
       if (!r.ok) throw new Error(await r.text());
       const reader = r.body.getReader(), dec = new TextDecoder();
       for (;;) {
@@ -119,6 +145,31 @@ export const PAGE = /* html */ String.raw`<!doctype html>
     } finally { send.disabled = false; q.focus(); }
   }
 
+
+  const rec = document.getElementById("rec"), recForm = document.getElementById("recForm"), recErr = document.getElementById("recErr");
+  document.getElementById("recOpen").addEventListener("click", () => { rec.classList.add("show"); recForm.name.focus(); });
+  recForm.addEventListener("submit", async (e) => {
+    e.preventDefault(); recErr.textContent = "";
+    const fd = new FormData(recForm);
+    const data = Object.fromEntries(fd.entries());
+    data.consent = recForm.consent.checked;
+    if (!data.name || !data.company || !data.email || !data.role_title) { recErr.textContent = "Please fill in name, company, email and role."; return; }
+    if (!data.consent) { recErr.textContent = "Please tick the privacy box to continue."; return; }
+    const btn = recForm.querySelector(".go"); btn.disabled = true;
+    try {
+      const r = await fetch("/api/visitor", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(data) });
+      if (!r.ok) throw new Error(await r.text());
+      const v = await r.json();
+      visitorId = v.id;
+      rec.remove(); starters.remove?.();
+      const badge = document.getElementById("badge"); badge.textContent = "Recruiter mode · " + v.role_title; badge.style.display = "inline-block";
+      add("bot", "Thanks " + v.name + "! I'll answer with the " + v.role_title + " role in mind. Ask me anything, or pick a question below.");
+      const box = document.createElement("div"); box.className = "starters";
+      ["How do you fit this role?", "What's your most relevant experience for this role?", "Which of the role's requirements would you need to ramp up on?", "Walk me through a data pipeline you've built end to end."]
+        .forEach((t) => { const b = document.createElement("button"); b.textContent = t; b.addEventListener("click", () => { box.remove(); ask(t); }); box.appendChild(b); });
+      log.appendChild(box); q.focus();
+    } catch (err) { recErr.textContent = err.message || "Something went wrong."; btn.disabled = false; }
+  });
   f.addEventListener("submit", (e) => { e.preventDefault(); ask(q.value); });
   q.addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(q.value); } });
   starters.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => ask(b.textContent)));
